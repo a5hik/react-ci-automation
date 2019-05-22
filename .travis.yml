@@ -1,0 +1,9 @@
+sudo: required
+services:
+   - docker
+
+before_install:
+   - docker build -t a5hik/react-ci-automation -f Dockerfile.dev .
+   
+script:
+   - docker run a5hik/react-ci-automation yarn test -- -- coverage
